@@ -1,0 +1,13 @@
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\bin\Debug\KoneksiDatabase.exe.config
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.vbprojResolveAssemblyReference.cache
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.KoneksiDatabase.resources
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.Resources.resources
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.vbproj.GenerateResource.Cache
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.xml
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\bin\Debug\Mahasiswa.mdb
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\bin\Debug\KoneksiDatabase.exe
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\bin\Debug\KoneksiDatabase.pdb
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\bin\Debug\KoneksiDatabase.xml
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.exe
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.pdb
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.Form2.resources
