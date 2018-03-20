@@ -11,3 +11,5 @@ D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\bin\Debug\KoneksiDatabase.xml
 D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.exe
 D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.pdb
 D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.Form2.resources
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.Form3.resources
+D:\D3TI\vb\KoneksiDatabase\KoneksiDatabase\obj\Debug\KoneksiDatabase.Formke3.resources
