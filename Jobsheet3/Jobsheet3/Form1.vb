@@ -78,4 +78,5 @@ Public Class Form1
         ADP.Fill(DS, "Tabel1")
         DataGridView1.DataSource = DS.Tables("Tabel1")
     End Sub
+
 End Class
