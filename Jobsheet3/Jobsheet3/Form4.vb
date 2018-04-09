@@ -1,6 +1,5 @@
 ﻿Imports System.Data.OleDb
-
-Public Class Form3
+Public Class Form4
 
     Dim cnnOLEDB As New OleDbConnection
     Dim cmdOLEDB As New OleDbCommand
@@ -10,44 +9,46 @@ Public Class Form3
     Public ADP As OleDbDataAdapter
     Public DS As New DataSet
 
-    Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cnnOLEDB.ConnectionString = strConnectionString
         cnnOLEDB.Open()
         TampilData()
         Bersih()
-        TxtId.MaxLength = 12
+        TxtIdBayi.MaxLength = 12
+        TxtIdIbu.MaxLength = 12
         TxtNama.MaxLength = 30
-        TxtAlamat.MaxLength = 50
-        TxtUsia.MaxLength = 3
+        TxtUmur.MaxLength = 3
     End Sub
 
     Sub TampilData()
-        ADP = New OleDbDataAdapter("SELECT * FROM Master_Ibu ORDER BY Id_Ibu", cnnOLEDB)
+        ADP = New OleDbDataAdapter("SELECT * FROM Bayi ORDER BY Id_Bayi", cnnOLEDB)
         DS = New DataSet
         ADP.Fill(DS, "Tabel1")
         DataGridView1.DataSource = DS.Tables("Tabel1")
     End Sub
 
     Sub Bersih()
-        TxtId.Text = ""
+        TxtIdBayi.Text = ""
+        TxtIdIbu.Text = ""
         TxtNama.Text = ""
-        TxtAlamat.Text = ""
-        TxtUsia.Text = ""
+        TxtUmur.Text = ""
+        CmbJK.Text = ""
     End Sub
 
     Private Sub BtnSimpan_Click(sender As Object, e As EventArgs) Handles BtnSimpan.Click
-        If TxtId.Text <> "" And TxtNama.Text <> "" And TxtAlamat.Text <> "" And TxtUsia.Text <> "" Then
+        If TxtIdBayi.Text <> "" And TxtIdIbu.Text <> "" And TxtNama.Text <> "" And TxtUmur.Text <> "" And CmbJK.Text <> "" Then
 
             Try
-                cmdInsert.CommandText = "INSERT INTO Master_Ibu " &
-                    "(Id_Ibu, Nama_Ibu, Alamat, Usia)" &
-                    "VALUES(@Id, @Nama, @Alamat, @Usia)"
+                cmdInsert.CommandText = "INSERT INTO Bayi " &
+                    "(Id_Bayi, Id_Ibu, Nama_Bayi, Umur, Jenis_Kelamin)" &
+                    "VALUES(@Id_Bayi, @Id_Ibu, @Nama_Bayi, @Umur, @Jenis_Kelamin)"
 
                 'Deklarasi Variabel dengan parameter yang diambil dari TextBox
-                cmdInsert.Parameters.AddWithValue("@Id_Ibu", Me.TxtId.Text)
-                cmdInsert.Parameters.AddWithValue("@Nama", Me.TxtNama.Text)
-                cmdInsert.Parameters.AddWithValue("@Alamat", Me.TxtAlamat.Text)
-                cmdInsert.Parameters.AddWithValue("@Usia", Me.TxtUsia.Text)
+                cmdInsert.Parameters.AddWithValue("@Id_Bayi", Me.TxtIdBayi.Text)
+                cmdInsert.Parameters.AddWithValue("@Id_Ibu", Me.TxtIdIbu.Text)
+                cmdInsert.Parameters.AddWithValue("@Nama_Bayi", Me.TxtNama.Text)
+                cmdInsert.Parameters.AddWithValue("@Umur", Me.TxtUmur.Text)
+                cmdInsert.Parameters.AddWithValue("@Jenis_Kelamin", Me.CmbJK.Text)
 
                 cmdInsert.CommandType = CommandType.Text
                 cmdInsert.Connection = cnnOLEDB
@@ -66,7 +67,7 @@ Public Class Form3
         Bersih()
     End Sub
 
-    Private Sub TxtUsia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtUsia.KeyPress
+    Private Sub TxtUmur_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtUmur.KeyPress
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
@@ -83,14 +84,17 @@ Public Class Form3
     End Sub
 
     Sub GetData(e)
-        Dim Id_Ibu As String = DataGridView1.Rows(e.RowIndex).Cells(0).Value
-        Dim Nama As Object = DataGridView1.Rows(e.RowIndex).Cells(1).Value
-        Dim Alamat As Object = DataGridView1.Rows(e.RowIndex).Cells(2).Value
-        Dim Usia As Object = DataGridView1.Rows(e.RowIndex).Cells(3).Value
+        Dim Id_Bayi As String = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+        Dim Id_Ibu As String = DataGridView1.Rows(e.RowIndex).Cells(1).Value
+        Dim Nama As Object = DataGridView1.Rows(e.RowIndex).Cells(2).Value
+        Dim Umur As Object = DataGridView1.Rows(e.RowIndex).Cells(3).Value
+        Dim Jenis_Kelamin As Object = DataGridView1.Rows(e.RowIndex).Cells(4).Value
 
-        TxtId.Text = Id_Ibu
+        TxtIdBayi.Text = Id_Bayi
+        TxtIdIbu.Text = CType(Id_Ibu, String)
         TxtNama.Text = CType(Nama, String)
-        TxtAlamat.Text = CType(Alamat, String)
-        TxtUsia.Text = CType(Usia, String)
+        TxtUmur.Text = CType(Umur, String)
+        CmbJK.Text = CType(Jenis_Kelamin, String)
     End Sub
+
 End Class
