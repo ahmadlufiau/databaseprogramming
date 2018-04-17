@@ -107,7 +107,6 @@ Public Class Form1
         o = New FileStream(jpgFile, FileMode.Open, FileAccess.Read, FileShare.Read)
         'Read the image into a stream reader
         r = New StreamReader(o)
-
         If TxtNIM.Text <> "" And TxtNama.Text <> "" And TxtTLahir.Text <> "" And TxtAlamat.Text <> "" And CmbKota.Text <> "" _
             And CmbProvinsi.Text <> "" And TxtNoHP.Text <> "" And TxtFoto.Text <> "" Then
 
@@ -199,6 +198,130 @@ Public Class Form1
         cmdUpdate.Dispose()
         TampilData()
         Bersih()
-
     End Sub
+
+    Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
+        Try
+            cmdDelete.CommandText = "DELETE FROM Master_Mahasiswa WHERE NIM=@NIM"
+            cmdDelete.Parameters.AddWithValue("@NIM", Me.TxtNIM.Text)
+            cmdDelete.CommandType = CommandType.Text
+            cmdDelete.Connection = cnnOLEDB
+            cmdDelete.ExecuteNonQuery()
+            MsgBox("Record Deleted")
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+        cmdDelete.Dispose()
+        TampilData()
+        Bersih()
+    End Sub
+
+    Private Sub BtnBrowse_Click(sender As Object, e As EventArgs) Handles BtnBrowse.Click
+        Dim OpenFileDialog1 As New OpenFileDialog
+        With OpenFileDialog1
+            .CheckFileExists = True
+            .ShowReadOnly = False
+            .Filter = "All Files |*.*|Bitmap Files(*)|*.bmp;*.gif;*.jpg|PNG Files(*)|*.png"
+            .FilterIndex = 2
+            If .ShowDialog = System.Windows.Forms.DialogResult.OK Then
+                PictureBox1.Image = Image.FromFile(.FileName)
+                TxtFoto.Text = .FileName.ToString
+            End If
+        End With
+    End Sub
+
+    Private Sub CmbCari_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCari.SelectedIndexChanged
+        If CmbCari.Text = "NIM" Then
+            MskCari.Mask = "#.##.##.#.##"
+        Else
+            MskCari.Mask = Nothing
+            MskCari.Text = ""
+        End If
+    End Sub
+
+    Private Sub BtnCari_Click(sender As Object, e As EventArgs) Handles BtnCari.Click
+        Dim query1 As String
+        Dim query2 As String
+        query1 = "SELECT * FROM Master_Mahasiswa WHERE NIM= '" & MskCari.Text & "'"
+        query2 = "SELECT * FROM Master_Mahasiswa WHERE Nama_Mhs LIKE '" & MskCari.Text & "%'"
+
+        If CmbCari.Text = "NIM" Then
+            ADP = New OleDbDataAdapter(query1, cnnOLEDB)
+            DS = New DataSet
+            ADP.Fill(DS, "Tabel1")
+            DataGridView1.DataSource = DS.Tables("Tabel1")
+
+            Dim NIM As Object = DataGridView1.Rows(0).Cells(0).Value
+            Dim Nama As Object = DataGridView1.Rows(0).Cells(1).Value
+            Dim TempatLahir As Object = DataGridView1.Rows(0).Cells(2).Value
+            Dim TanggalLahir As Object = DataGridView1.Rows(0).Cells(3).Value
+            Dim Alamat As Object = DataGridView1.Rows(0).Cells(4).Value
+            Dim Kota As Object = DataGridView1.Rows(0).Cells(5).Value
+            Dim Provinsi As Object = DataGridView1.Rows(0).Cells(6).Value
+            Dim NoHP As Object = DataGridView1.Rows(0).Cells(7).Value
+            Dim Email As Object = DataGridView1.Rows(0).Cells(8).Value
+
+            TxtNIM.Text = CType(NIM, String)
+            TxtNama.Text = CType(Nama, String)
+            TxtTLahir.Text = CType(TempatLahir, String)
+            Tgl.Text = CType(TanggalLahir, String)
+            TxtAlamat.Text = CType(Alamat, String)
+            TxtNoHP.Text = CType(NoHP, String)
+            CmbKota.Text = CType(Kota, String)
+            CmbProvinsi.Text = CType(Provinsi, String)
+            TxtEmail.Text = CType(Email, String)
+
+            Try
+                Dim command As New OleDbCommand("SELECT Foto FROM Master_Mahasiswa WHERE NIM=@NIM", cnnOLEDB)
+                command.Parameters.AddWithValue("@NIM", CType(NIM, String))
+                Dim pictureData As Byte() = DirectCast(command.ExecuteScalar(), Byte())
+                command.Dispose()
+                Dim Stream As New IO.MemoryStream(pictureData)
+                Me.PictureBox1.Image = Image.FromStream(Stream)
+                Stream.Dispose()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+            End Try
+
+        Else
+            ADP = New OleDbDataAdapter(query2, cnnOLEDB)
+            DS = New DataSet
+            ADP.Fill(DS, "Tabel1")
+            DataGridView1.DataSource = DS.Tables("Tabel1")
+            If DataGridView1.RowCount = 2 Then
+                Dim NIM As Object = DataGridView1.Rows(0).Cells(0).Value
+                Dim Nama As Object = DataGridView1.Rows(0).Cells(1).Value
+                Dim TempatLahir As Object = DataGridView1.Rows(0).Cells(2).Value
+                Dim TanggalLahir As Object = DataGridView1.Rows(0).Cells(3).Value
+                Dim Alamat As Object = DataGridView1.Rows(0).Cells(4).Value
+                Dim Kota As Object = DataGridView1.Rows(0).Cells(5).Value
+                Dim Provinsi As Object = DataGridView1.Rows(0).Cells(6).Value
+                Dim NoHP As Object = DataGridView1.Rows(0).Cells(7).Value
+                Dim Email As Object = DataGridView1.Rows(0).Cells(8).Value
+
+                TxtNIM.Text = CType(NIM, String)
+                TxtNama.Text = CType(Nama, String)
+                TxtTLahir.Text = CType(TempatLahir, String)
+                Tgl.Text = CType(TanggalLahir, String)
+                TxtAlamat.Text = CType(Alamat, String)
+                TxtNoHP.Text = CType(NoHP, String)
+                CmbKota.Text = CType(Kota, String)
+                CmbProvinsi.Text = CType(Provinsi, String)
+                TxtEmail.Text = CType(Email, String)
+
+                Try
+                    Dim command As New OleDbCommand("SELECT Foto FROM Master_Mahasiswa WHERE NIM=@NIM", cnnOLEDB)
+                    command.Parameters.AddWithValue("@NIM", CType(NIM, String))
+                    Dim pictureData As Byte() = DirectCast(command.ExecuteScalar(), Byte())
+                    command.Dispose()
+                    Dim Stream As New IO.MemoryStream(pictureData)
+                    Me.PictureBox1.Image = Image.FromStream(Stream)
+                    Stream.Dispose()
+                Catch ex As Exception
+                    MessageBox.Show(ex.ToString)
+                End Try
+            End If
+        End If
+    End Sub
+
 End Class
