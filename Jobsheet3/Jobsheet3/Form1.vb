@@ -7,6 +7,8 @@ Public Class Form1
     Dim cnnOLEDB As New OleDbConnection
     Dim cmdOLEDB As New OleDbCommand
     Dim cmdInsert As New OleDbCommand
+    Dim cmdUpdate As New OleDbCommand
+    Dim cmdDelete As New OleDbCommand
     Dim strConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" &
         System.Environment.CurrentDirectory & "\Akademik.accdb"
     Public ADP As OleDbDataAdapter
@@ -137,5 +139,66 @@ Public Class Form1
         cmdInsert.Dispose()
         TampilData()
         Bersih()
+    End Sub
+
+    Private Sub BtnUpdate_Click(sender As Object, e As EventArgs) Handles BtnUpdate.Click
+        If TxtNIM.Text <> "" And TxtNama.Text <> "" And TxtTLahir.Text <> "" And TxtAlamat.Text <> "" And CmbKota.Text <> "" And CmbProvinsi.Text <> "" And TxtNoHP.Text <> "" Then
+            Try
+                If TxtFoto.Text = "" Then
+                    cmdUpdate.CommandText = "UPDATE Master_Mahasiswa SET " &
+                                            "NIM=@NIM, Nama_Mhs=@Nama, Tempat_Lahir=@TLahir, Tanggal_Lahir=@Tgl, Alamat=@Alamat," &
+                                            "Kota=@Kota, Provinsi=@Provinsi, No_HP=@NoHP, Email=@Email WHERE NIM=@NIM"
+                    cmdUpdate.Parameters.AddWithValue("@NIM", Me.TxtNIM.Text)
+                    cmdUpdate.Parameters.AddWithValue("@Nama", Me.TxtNama.Text)
+                    cmdUpdate.Parameters.AddWithValue("@TLahir", Me.TxtTLahir.Text)
+                    cmdUpdate.Parameters.AddWithValue("@Tgl", Me.Tgl.Text)
+                    cmdUpdate.Parameters.AddWithValue("@Alamat", Me.TxtAlamat.Text)
+                    cmdUpdate.Parameters.AddWithValue("@Kota", Me.CmbKota.Text)
+                    cmdUpdate.Parameters.AddWithValue("@NProvinsi", Me.CmbProvinsi.Text)
+                    cmdUpdate.Parameters.AddWithValue("@NoHP", Me.TxtNoHP.Text)
+                    cmdUpdate.Parameters.AddWithValue("@Email", Me.TxtEmail.Text)
+                Else
+                    'Declare a file stream object
+                    Dim o As System.IO.FileStream
+                    'Declare a stream reader object
+                    Dim r As StreamReader
+                    'Shorter variable name for FileStream (optional)
+                    Dim jpgFile As String = TxtFoto.Text
+                    'Open image file
+                    o = New FileStream(jpgFile, FileMode.Open, FileAccess.Read, FileShare.Read)
+                    'Read the image into a stream reader
+                    r = New StreamReader(o)
+                    'Declare a Byte array to hold the image
+                    Dim FileByteArray(o.Length - 1) As Byte
+                    'Fill the Byte array with image byte data
+                    o.Read(FileByteArray, 0, o.Length)
+                    cmdUpdate.CommandText = "UPDATE Master_Mahasiswa SET " &
+                                            "NIM=@NIM, Nama_Mhs=@Nama, Tempat_Lahir=@TLahir, Tanggal_Lahir=@Tgl, Alamat=@Alamat," &
+                                            "Kota=@Kota, Provinsi=@Provinsi, No_HP=@NoHP, Email=@Email,Foto=@Gambar WHERE NIM=@NIM"
+                    cmdUpdate.Parameters.Add("@Gambar", System.Data.OleDb.OleDbType.Binary, o.Length).Value = FileByteArray
+                    cmdUpdate.Parameters.AddWithValue("@NIM", Me.TxtNIM.Text)
+                    cmdUpdate.Parameters.AddWithValue("@Nama", Me.TxtNama.Text)
+                    cmdUpdate.Parameters.AddWithValue("@TLahir", Me.TxtTLahir.Text)
+                    cmdUpdate.Parameters.AddWithValue("@Tgl", Me.Tgl.Text)
+                    cmdUpdate.Parameters.AddWithValue("@Alamat", Me.TxtAlamat.Text)
+                    cmdUpdate.Parameters.AddWithValue("@Kota", Me.CmbKota.Text)
+                    cmdUpdate.Parameters.AddWithValue("@NProvinsi", Me.CmbProvinsi.Text)
+                    cmdUpdate.Parameters.AddWithValue("@NoHP", Me.TxtNoHP.Text)
+                    cmdUpdate.Parameters.AddWithValue("@Email", Me.TxtEmail.Text)
+                End If
+                cmdUpdate.CommandType = CommandType.Text
+                cmdUpdate.Connection = cnnOLEDB
+                cmdUpdate.ExecuteNonQuery()
+                MsgBox("Record Updated")
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+        Else
+            MsgBox("Masukkan Data Secara Lengkap :")
+        End If
+        cmdUpdate.Dispose()
+        TampilData()
+        Bersih()
+
     End Sub
 End Class
