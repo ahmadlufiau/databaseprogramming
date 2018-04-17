@@ -47,6 +47,13 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TxtNIM = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnUpdate = New System.Windows.Forms.Button()
+        Me.BtnDelete = New System.Windows.Forms.Button()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.CmbCari = New System.Windows.Forms.ComboBox()
+        Me.MskCari = New System.Windows.Forms.MaskedTextBox()
+        Me.BtnCari = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -64,22 +71,23 @@ Partial Class Form1
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(55, 347)
+        Me.DataGridView1.Location = New System.Drawing.Point(55, 402)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(456, 164)
+        Me.DataGridView1.Size = New System.Drawing.Size(526, 164)
         Me.DataGridView1.TabIndex = 51
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(359, 58)
+        Me.PictureBox1.Location = New System.Drawing.Point(397, 58)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(152, 176)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 50
         Me.PictureBox1.TabStop = False
         '
         'BtnSimpan
         '
-        Me.BtnSimpan.Location = New System.Drawing.Point(124, 318)
+        Me.BtnSimpan.Location = New System.Drawing.Point(124, 373)
         Me.BtnSimpan.Name = "BtnSimpan"
         Me.BtnSimpan.Size = New System.Drawing.Size(75, 23)
         Me.BtnSimpan.TabIndex = 49
@@ -88,7 +96,7 @@ Partial Class Form1
         '
         'BtnBrowse
         '
-        Me.BtnBrowse.Location = New System.Drawing.Point(346, 291)
+        Me.BtnBrowse.Location = New System.Drawing.Point(346, 346)
         Me.BtnBrowse.Name = "BtnBrowse"
         Me.BtnBrowse.Size = New System.Drawing.Size(75, 23)
         Me.BtnBrowse.TabIndex = 48
@@ -97,7 +105,7 @@ Partial Class Form1
         '
         'TxtFoto
         '
-        Me.TxtFoto.Location = New System.Drawing.Point(124, 292)
+        Me.TxtFoto.Location = New System.Drawing.Point(124, 347)
         Me.TxtFoto.Name = "TxtFoto"
         Me.TxtFoto.Size = New System.Drawing.Size(216, 20)
         Me.TxtFoto.TabIndex = 47
@@ -105,7 +113,7 @@ Partial Class Form1
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(52, 295)
+        Me.Label10.Location = New System.Drawing.Point(52, 350)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(28, 13)
         Me.Label10.TabIndex = 46
@@ -115,7 +123,7 @@ Partial Class Form1
         '
         Me.CmbProvinsi.FormattingEnabled = True
         Me.CmbProvinsi.Items.AddRange(New Object() {"Jawa Tengah", "Jawa Timur"})
-        Me.CmbProvinsi.Location = New System.Drawing.Point(124, 213)
+        Me.CmbProvinsi.Location = New System.Drawing.Point(124, 268)
         Me.CmbProvinsi.Name = "CmbProvinsi"
         Me.CmbProvinsi.Size = New System.Drawing.Size(216, 21)
         Me.CmbProvinsi.TabIndex = 45
@@ -124,14 +132,14 @@ Partial Class Form1
         '
         Me.CmbKota.FormattingEnabled = True
         Me.CmbKota.Items.AddRange(New Object() {"Kota Semarang", "Kab Semarang", "Kendal", "Demak", "Pati", "Magelang", "Wonosobo", "Purwokerto", "Blora", "Lamongan", "Rambang"})
-        Me.CmbKota.Location = New System.Drawing.Point(124, 187)
+        Me.CmbKota.Location = New System.Drawing.Point(124, 242)
         Me.CmbKota.Name = "CmbKota"
         Me.CmbKota.Size = New System.Drawing.Size(216, 21)
         Me.CmbKota.TabIndex = 44
         '
         'TxtEmail
         '
-        Me.TxtEmail.Location = New System.Drawing.Point(124, 266)
+        Me.TxtEmail.Location = New System.Drawing.Point(124, 321)
         Me.TxtEmail.Name = "TxtEmail"
         Me.TxtEmail.Size = New System.Drawing.Size(216, 20)
         Me.TxtEmail.TabIndex = 43
@@ -139,7 +147,7 @@ Partial Class Form1
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(52, 269)
+        Me.Label9.Location = New System.Drawing.Point(52, 324)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(32, 13)
         Me.Label9.TabIndex = 42
@@ -147,7 +155,7 @@ Partial Class Form1
         '
         'TxtNoHP
         '
-        Me.TxtNoHP.Location = New System.Drawing.Point(124, 240)
+        Me.TxtNoHP.Location = New System.Drawing.Point(124, 295)
         Me.TxtNoHP.Name = "TxtNoHP"
         Me.TxtNoHP.Size = New System.Drawing.Size(216, 20)
         Me.TxtNoHP.TabIndex = 41
@@ -155,7 +163,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(52, 243)
+        Me.Label7.Location = New System.Drawing.Point(52, 298)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(39, 13)
         Me.Label7.TabIndex = 40
@@ -164,7 +172,7 @@ Partial Class Form1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(52, 217)
+        Me.Label8.Location = New System.Drawing.Point(52, 272)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(44, 13)
         Me.Label8.TabIndex = 39
@@ -180,7 +188,7 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(52, 191)
+        Me.Label5.Location = New System.Drawing.Point(52, 246)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(29, 13)
         Me.Label5.TabIndex = 37
@@ -189,8 +197,9 @@ Partial Class Form1
         'TxtAlamat
         '
         Me.TxtAlamat.Location = New System.Drawing.Point(124, 162)
+        Me.TxtAlamat.Multiline = True
         Me.TxtAlamat.Name = "TxtAlamat"
-        Me.TxtAlamat.Size = New System.Drawing.Size(216, 20)
+        Me.TxtAlamat.Size = New System.Drawing.Size(216, 72)
         Me.TxtAlamat.TabIndex = 36
         '
         'Label6
@@ -259,11 +268,78 @@ Partial Class Form1
         Me.Label1.TabIndex = 28
         Me.Label1.Text = "NIM"
         '
+        'BtnUpdate
+        '
+        Me.BtnUpdate.Location = New System.Drawing.Point(206, 373)
+        Me.BtnUpdate.Name = "BtnUpdate"
+        Me.BtnUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.BtnUpdate.TabIndex = 53
+        Me.BtnUpdate.Text = "Update"
+        Me.BtnUpdate.UseVisualStyleBackColor = True
+        '
+        'BtnDelete
+        '
+        Me.BtnDelete.Location = New System.Drawing.Point(287, 373)
+        Me.BtnDelete.Name = "BtnDelete"
+        Me.BtnDelete.Size = New System.Drawing.Size(75, 23)
+        Me.BtnDelete.TabIndex = 54
+        Me.BtnDelete.Text = "Delete"
+        Me.BtnDelete.UseVisualStyleBackColor = True
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(368, 258)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(67, 13)
+        Me.Label12.TabIndex = 55
+        Me.Label12.Text = "Berdasarkan"
+        '
+        'CmbCari
+        '
+        Me.CmbCari.FormattingEnabled = True
+        Me.CmbCari.Items.AddRange(New Object() {"NIM", "Nama"})
+        Me.CmbCari.Location = New System.Drawing.Point(442, 258)
+        Me.CmbCari.Name = "CmbCari"
+        Me.CmbCari.Size = New System.Drawing.Size(121, 21)
+        Me.CmbCari.TabIndex = 56
+        '
+        'MskCari
+        '
+        Me.MskCari.Location = New System.Drawing.Point(371, 286)
+        Me.MskCari.Name = "MskCari"
+        Me.MskCari.Size = New System.Drawing.Size(192, 20)
+        Me.MskCari.TabIndex = 57
+        '
+        'BtnCari
+        '
+        Me.BtnCari.Location = New System.Drawing.Point(488, 312)
+        Me.BtnCari.Name = "BtnCari"
+        Me.BtnCari.Size = New System.Drawing.Size(75, 23)
+        Me.BtnCari.TabIndex = 58
+        Me.BtnCari.Text = "Cari"
+        Me.BtnCari.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Location = New System.Drawing.Point(359, 240)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(222, 101)
+        Me.GroupBox1.TabIndex = 59
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Cari Data"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(562, 518)
+        Me.ClientSize = New System.Drawing.Size(602, 589)
+        Me.Controls.Add(Me.BtnCari)
+        Me.Controls.Add(Me.MskCari)
+        Me.Controls.Add(Me.CmbCari)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.BtnDelete)
+        Me.Controls.Add(Me.BtnUpdate)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.PictureBox1)
@@ -289,6 +365,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TxtNIM)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -323,4 +400,11 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents TxtNIM As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents BtnUpdate As Button
+    Friend WithEvents BtnDelete As Button
+    Friend WithEvents Label12 As Label
+    Friend WithEvents CmbCari As ComboBox
+    Friend WithEvents MskCari As MaskedTextBox
+    Friend WithEvents BtnCari As Button
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

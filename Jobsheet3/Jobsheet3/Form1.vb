@@ -1,10 +1,12 @@
 ﻿Imports System.Data.OleDb
+Imports System.IO
 Public Class Form1
 
     'Browsing Data Using DataGridView
 
     Dim cnnOLEDB As New OleDbConnection
     Dim cmdOLEDB As New OleDbCommand
+    Dim cmdInsert As New OleDbCommand
     Dim strConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" &
         System.Environment.CurrentDirectory & "\Akademik.accdb"
     Public ADP As OleDbDataAdapter
@@ -16,6 +18,19 @@ Public Class Form1
 
     Private Sub DataGridView1_CellContextMenuStripChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContextMenuStripChanged
         GetData(e)
+    End Sub
+    Sub Bersih()
+        TxtNIM.Text = ""
+        TxtNama.Text = ""
+        TxtTLahir.Text = ""
+        Tgl.Text = ""
+        TxtAlamat.Text = ""
+        CmbKota.SelectedText = ""
+        CmbProvinsi.SelectedText = ""
+        TxtNoHP.Text = ""
+        TxtFoto.Text = ""
+        TxtEmail.Text = ""
+        PictureBox1.Image = Nothing
     End Sub
 
     Sub GetData(e)
@@ -79,4 +94,48 @@ Public Class Form1
         DataGridView1.DataSource = DS.Tables("Tabel1")
     End Sub
 
+    Private Sub BtnSimpan_Click(sender As Object, e As EventArgs) Handles BtnSimpan.Click
+        'Declare a file stream object
+        Dim o As System.IO.FileStream
+        'Declare a stream reader object
+        Dim r As StreamReader
+        'Shorter variable name for FileStream (optional)
+        Dim jpgFile As String = TxtFoto.Text
+        'Open image file
+        o = New FileStream(jpgFile, FileMode.Open, FileAccess.Read, FileShare.Read)
+        'Read the image into a stream reader
+        r = New StreamReader(o)
+
+        If TxtNIM.Text <> "" And TxtNama.Text <> "" And TxtTLahir.Text <> "" And TxtAlamat.Text <> "" And CmbKota.Text <> "" _
+            And CmbProvinsi.Text <> "" And TxtNoHP.Text <> "" And TxtFoto.Text <> "" Then
+
+            Try
+                'Declare a Byte array to hold the image
+                Dim FileByteArray(o.Length - 1) As Byte
+
+                'Fill the Byte array with image byte data
+                o.Read(FileByteArray, 0, o.Length)
+
+                cmdInsert.CommandText = "INSERT INTO Master_Mahasiswa " &
+               "(NIM, Nama_Mhs, Tempat_Lahir, Tanggal_Lahir, Alamat, Kota, Provinsi, No_HP, Email, Foto) " &
+               "VALUES('" & TxtNIM.Text & "','" & TxtNama.Text & "','" & TxtTLahir.Text & "','" & Tgl.Text & "','" & TxtAlamat.Text & "','" &
+                CmbKota.Text & "','" & CmbProvinsi.Text & "','" & TxtNoHP.Text & "','" & TxtEmail.Text & "', @Gambar)"
+
+                cmdInsert.Parameters.Add("@Gambar", System.Data.OleDb.OleDbType.Binary, o.Length).Value = FileByteArray
+
+                cmdInsert.CommandType = CommandType.Text
+                cmdInsert.Connection = cnnOLEDB
+                cmdInsert.ExecuteNonQuery()
+                MsgBox("Record inserted")
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+
+        Else
+            MsgBox("Masukkan Data Secara Lengkap :")
+        End If
+        cmdInsert.Dispose()
+        TampilData()
+        Bersih()
+    End Sub
 End Class
