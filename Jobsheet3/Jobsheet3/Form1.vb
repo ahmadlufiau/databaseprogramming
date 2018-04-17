@@ -232,7 +232,7 @@ Public Class Form1
 
     Private Sub CmbCari_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCari.SelectedIndexChanged
         If CmbCari.Text = "NIM" Then
-            MskCari.Mask = "#.##.##.#.##"
+            MskCari.Mask = "#,##,##,#,##"
         Else
             MskCari.Mask = Nothing
             MskCari.Text = ""
