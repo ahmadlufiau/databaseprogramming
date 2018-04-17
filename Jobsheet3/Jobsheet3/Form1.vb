@@ -174,7 +174,6 @@ Public Class Form1
                     cmdUpdate.CommandText = "UPDATE Master_Mahasiswa SET " &
                                             "NIM=@NIM, Nama_Mhs=@Nama, Tempat_Lahir=@TLahir, Tanggal_Lahir=@Tgl, Alamat=@Alamat," &
                                             "Kota=@Kota, Provinsi=@Provinsi, No_HP=@NoHP, Email=@Email,Foto=@Gambar WHERE NIM=@NIM"
-                    cmdUpdate.Parameters.Add("@Gambar", System.Data.OleDb.OleDbType.Binary, o.Length).Value = FileByteArray
                     cmdUpdate.Parameters.AddWithValue("@NIM", Me.TxtNIM.Text)
                     cmdUpdate.Parameters.AddWithValue("@Nama", Me.TxtNama.Text)
                     cmdUpdate.Parameters.AddWithValue("@TLahir", Me.TxtTLahir.Text)
@@ -184,6 +183,7 @@ Public Class Form1
                     cmdUpdate.Parameters.AddWithValue("@NProvinsi", Me.CmbProvinsi.Text)
                     cmdUpdate.Parameters.AddWithValue("@NoHP", Me.TxtNoHP.Text)
                     cmdUpdate.Parameters.AddWithValue("@Email", Me.TxtEmail.Text)
+                    cmdUpdate.Parameters.Add("@Gambar", System.Data.OleDb.OleDbType.Binary, o.Length).Value = FileByteArray
                 End If
                 cmdUpdate.CommandType = CommandType.Text
                 cmdUpdate.Connection = cnnOLEDB
