@@ -4,6 +4,8 @@ Public Class Form4
     Dim cnnOLEDB As New OleDbConnection
     Dim cmdOLEDB As New OleDbCommand
     Dim cmdInsert As New OleDbCommand
+    Dim cmdUpdate As New OleDbCommand
+    Dim cmdDelete As New OleDbCommand
     Dim strConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" &
         System.Environment.CurrentDirectory & "\Posyandu.accdb"
     Public ADP As OleDbDataAdapter
@@ -95,6 +97,102 @@ Public Class Form4
         TxtNama.Text = CType(Nama, String)
         TxtUmur.Text = CType(Umur, String)
         CmbJK.Text = CType(Jenis_Kelamin, String)
+    End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        If TxtIdBayi.Text <> "" And TxtIdIbu.Text <> "" And TxtNama.Text <> "" And TxtUmur.Text <> "" And CmbJK.Text <> "" Then
+            Try
+                cmdUpdate.CommandText = "Update Bayi SET Id_Bayi=@Id_Bayi, Id_Ibu=@Id_Ibu, Nama_Bayi= " &
+                    "@Nama, Umur=@Umur, Jenis_Kelamin=@Jenis_Kelamin WHERE Id_Bayi=@Id_Bayi"
+                cmdUpdate.Parameters.AddWithValue("@Id_Bayi", Me.TxtIdBayi.Text)
+                cmdUpdate.Parameters.AddWithValue("@Id_Ibu", Me.TxtIdIbu.Text)
+                cmdUpdate.Parameters.AddWithValue("@Nama", Me.TxtNama.Text)
+                cmdUpdate.Parameters.AddWithValue("@Umur", Me.TxtUmur.Text)
+                cmdUpdate.Parameters.AddWithValue("@Jenis_Kelamin", Me.CmbJK.Text)
+
+                cmdUpdate.CommandType = CommandType.Text
+                cmdUpdate.Connection = cnnOLEDB
+                cmdUpdate.ExecuteNonQuery()
+                MsgBox("Record Updated")
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+        Else
+            MsgBox("Masukkan Data secara Lengkap :")
+        End If
+        cmdUpdate.Dispose()
+        TampilData()
+        Bersih()
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Try
+            cmdDelete.CommandText = "DELETE FROM Bayi WHERE Id_Bayi=@Id_Bayi"
+            cmdDelete.Parameters.AddWithValue("@Id_Bayi", Me.TxtIdBayi.Text)
+            cmdDelete.CommandType = CommandType.Text
+            cmdDelete.Connection = cnnOLEDB
+            cmdDelete.ExecuteNonQuery()
+            MsgBox("Record Deleted")
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+        cmdDelete.Dispose()
+        TampilData()
+        Bersih()
+    End Sub
+
+    Private Sub cmbCari_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCari.SelectedIndexChanged
+        If cmbCari.Text = "Id_Bayi" Then
+            mtbCari.Mask = ""
+        Else
+            mtbCari.Mask = Nothing
+            mtbCari.Text = ""
+        End If
+    End Sub
+
+    Private Sub btnCari_Click(sender As Object, e As EventArgs) Handles btnCari.Click
+        Dim query1 As String
+        Dim query2 As String
+        query1 = "SELECT * FROM Bayi WHERE Id_Bayi = '" & mtbCari.Text & "'"
+        query2 = "SELECT * FROM Bayi WHERE Nama_Bayi LIKE '" & mtbCari.Text & "%'"
+        If cmbCari.Text = "Id Bayi" Then
+            ADP = New OleDbDataAdapter(query1, cnnOLEDB)
+            DS = New DataSet
+            ADP.Fill(DS, "Tabel1")
+            DataGridView1.DataSource = DS.Tables("Tabel1")
+
+            Dim Id_Bayi As Object = DataGridView1.Rows(0).Cells(0).Value
+            Dim Id_Ibu As Object = DataGridView1.Rows(0).Cells(1).Value
+            Dim Nama_Bayi As Object = DataGridView1.Rows(0).Cells(2).Value
+            Dim Umur As Object = DataGridView1.Rows(0).Cells(3).Value
+            Dim Jenis_Kelamin As Object = DataGridView1.Rows(0).Cells(4).Value
+
+            TxtIdBayi.Text = CType(Id_Bayi, String)
+            TxtIdIbu.Text = CType(Id_Ibu, String)
+            TxtNama.Text = CType(Nama_Bayi, String)
+            TxtUmur.Text = CType(Umur, String)
+            CmbJK.Text = CType(Jenis_Kelamin, String)
+
+        Else
+            ADP = New OleDbDataAdapter(query2, cnnOLEDB)
+            DS = New DataSet
+            ADP.Fill(DS, "Tabel1")
+            DataGridView1.DataSource = DS.Tables("Tabel1")
+            If DataGridView1.RowCount = 2 Then
+                Dim Id_Bayi As Object = DataGridView1.Rows(0).Cells(0).Value
+                Dim Id_Ibu As Object = DataGridView1.Rows(0).Cells(1).Value
+                Dim Nama_Bayi As Object = DataGridView1.Rows(0).Cells(2).Value
+                Dim Umur As Object = DataGridView1.Rows(0).Cells(3).Value
+                Dim Jenis_Kelamin As Object = DataGridView1.Rows(0).Cells(4).Value
+
+                TxtIdBayi.Text = CType(Id_Bayi, String)
+                TxtIdIbu.Text = CType(Id_Ibu, String)
+                TxtNama.Text = CType(Nama_Bayi, String)
+                TxtUmur.Text = CType(Umur, String)
+                CmbJK.Text = CType(Jenis_Kelamin, String)
+
+            End If
+        End If
     End Sub
 
 End Class

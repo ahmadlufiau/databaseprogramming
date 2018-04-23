@@ -35,7 +35,15 @@ Partial Class Form4
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.CmbJK = New System.Windows.Forms.ComboBox()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnCari = New System.Windows.Forms.Button()
+        Me.mtbCari = New System.Windows.Forms.MaskedTextBox()
+        Me.cmbCari = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label11
@@ -58,7 +66,7 @@ Partial Class Form4
         '
         'BtnSimpan
         '
-        Me.BtnSimpan.Location = New System.Drawing.Point(113, 239)
+        Me.BtnSimpan.Location = New System.Drawing.Point(113, 249)
         Me.BtnSimpan.Name = "BtnSimpan"
         Me.BtnSimpan.Size = New System.Drawing.Size(75, 23)
         Me.BtnSimpan.TabIndex = 87
@@ -67,21 +75,21 @@ Partial Class Form4
         '
         'TxtUmur
         '
-        Me.TxtUmur.Location = New System.Drawing.Point(113, 172)
+        Me.TxtUmur.Location = New System.Drawing.Point(113, 196)
         Me.TxtUmur.Name = "TxtUmur"
         Me.TxtUmur.Size = New System.Drawing.Size(100, 20)
         Me.TxtUmur.TabIndex = 86
         '
         'TxtNama
         '
-        Me.TxtNama.Location = New System.Drawing.Point(113, 137)
+        Me.TxtNama.Location = New System.Drawing.Point(113, 172)
         Me.TxtNama.Name = "TxtNama"
         Me.TxtNama.Size = New System.Drawing.Size(143, 20)
         Me.TxtNama.TabIndex = 84
         '
         'TxtIdBayi
         '
-        Me.TxtIdBayi.Location = New System.Drawing.Point(113, 64)
+        Me.TxtIdBayi.Location = New System.Drawing.Point(113, 124)
         Me.TxtIdBayi.Name = "TxtIdBayi"
         Me.TxtIdBayi.Size = New System.Drawing.Size(100, 20)
         Me.TxtIdBayi.TabIndex = 83
@@ -89,7 +97,7 @@ Partial Class Form4
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(26, 175)
+        Me.Label4.Location = New System.Drawing.Point(26, 199)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(32, 13)
         Me.Label4.TabIndex = 82
@@ -98,7 +106,7 @@ Partial Class Form4
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(26, 140)
+        Me.Label2.Location = New System.Drawing.Point(26, 175)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(58, 13)
         Me.Label2.TabIndex = 80
@@ -107,7 +115,7 @@ Partial Class Form4
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(26, 67)
+        Me.Label1.Location = New System.Drawing.Point(26, 127)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(39, 13)
         Me.Label1.TabIndex = 79
@@ -115,7 +123,7 @@ Partial Class Form4
         '
         'TxtIdIbu
         '
-        Me.TxtIdIbu.Location = New System.Drawing.Point(113, 101)
+        Me.TxtIdIbu.Location = New System.Drawing.Point(113, 148)
         Me.TxtIdIbu.Name = "TxtIdIbu"
         Me.TxtIdIbu.Size = New System.Drawing.Size(100, 20)
         Me.TxtIdIbu.TabIndex = 91
@@ -123,7 +131,7 @@ Partial Class Form4
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(26, 104)
+        Me.Label3.Location = New System.Drawing.Point(26, 151)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(34, 13)
         Me.Label3.TabIndex = 90
@@ -132,7 +140,7 @@ Partial Class Form4
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(26, 209)
+        Me.Label5.Location = New System.Drawing.Point(26, 223)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(71, 13)
         Me.Label5.TabIndex = 92
@@ -142,16 +150,84 @@ Partial Class Form4
         '
         Me.CmbJK.FormattingEnabled = True
         Me.CmbJK.Items.AddRange(New Object() {"Pria", "Wanita"})
-        Me.CmbJK.Location = New System.Drawing.Point(113, 207)
+        Me.CmbJK.Location = New System.Drawing.Point(113, 221)
         Me.CmbJK.Name = "CmbJK"
         Me.CmbJK.Size = New System.Drawing.Size(121, 21)
         Me.CmbJK.TabIndex = 93
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Location = New System.Drawing.Point(278, 249)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(75, 23)
+        Me.btnDelete.TabIndex = 95
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
+        'btnUpdate
+        '
+        Me.btnUpdate.Location = New System.Drawing.Point(194, 249)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.btnUpdate.TabIndex = 94
+        Me.btnUpdate.Text = "Update"
+        Me.btnUpdate.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.btnCari)
+        Me.GroupBox1.Controls.Add(Me.mtbCari)
+        Me.GroupBox1.Controls.Add(Me.cmbCari)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Location = New System.Drawing.Point(26, 39)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(456, 73)
+        Me.GroupBox1.TabIndex = 96
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Cari Data"
+        '
+        'btnCari
+        '
+        Me.btnCari.Location = New System.Drawing.Point(373, 43)
+        Me.btnCari.Name = "btnCari"
+        Me.btnCari.Size = New System.Drawing.Size(47, 23)
+        Me.btnCari.TabIndex = 52
+        Me.btnCari.Text = "Cari"
+        Me.btnCari.UseVisualStyleBackColor = True
+        '
+        'mtbCari
+        '
+        Me.mtbCari.Location = New System.Drawing.Point(116, 45)
+        Me.mtbCari.Name = "mtbCari"
+        Me.mtbCari.Size = New System.Drawing.Size(239, 20)
+        Me.mtbCari.TabIndex = 2
+        '
+        'cmbCari
+        '
+        Me.cmbCari.FormattingEnabled = True
+        Me.cmbCari.Items.AddRange(New Object() {"Id Bayi", "Nama Bayi"})
+        Me.cmbCari.Location = New System.Drawing.Point(116, 18)
+        Me.cmbCari.Name = "cmbCari"
+        Me.cmbCari.Size = New System.Drawing.Size(121, 21)
+        Me.cmbCari.TabIndex = 1
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(26, 21)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(67, 13)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Berdasarkan"
         '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(525, 444)
+        Me.ClientSize = New System.Drawing.Size(520, 444)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.btnDelete)
+        Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.CmbJK)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.TxtIdIbu)
@@ -168,6 +244,8 @@ Partial Class Form4
         Me.Name = "Form4"
         Me.Text = "Data Bayi"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -186,4 +264,11 @@ Partial Class Form4
     Friend WithEvents Label3 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents CmbJK As ComboBox
+    Friend WithEvents btnDelete As Button
+    Friend WithEvents btnUpdate As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents btnCari As Button
+    Friend WithEvents mtbCari As MaskedTextBox
+    Friend WithEvents cmbCari As ComboBox
+    Friend WithEvents Label6 As Label
 End Class

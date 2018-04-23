@@ -142,7 +142,7 @@ Public Class Form3
         Dim query2 As String
         query1 = "SELECT * FROM Master_Ibu WHERE Id_Ibu = '" & mtbCari.Text & "'"
         query2 = "SELECT * FROM Master_Ibu WHERE Nama_Ibu LIKE '" & mtbCari.Text & "%'"
-        If cmbCari.Text = "Id Ibu" Then
+        If cmbCari.Text = "Id_Ibu" Then
             ADP = New OleDbDataAdapter(query1, cnnOLEDB)
             DS = New DataSet
             ADP.Fill(DS, "Tabel1")
