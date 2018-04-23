@@ -62,7 +62,7 @@ Partial Class Form1
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(93, 17)
+        Me.Label11.Location = New System.Drawing.Point(75, 9)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(388, 25)
         Me.Label11.TabIndex = 52
@@ -71,14 +71,14 @@ Partial Class Form1
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(55, 402)
+        Me.DataGridView1.Location = New System.Drawing.Point(37, 394)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(526, 164)
         Me.DataGridView1.TabIndex = 51
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(397, 58)
+        Me.PictureBox1.Location = New System.Drawing.Point(379, 50)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(152, 176)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -87,7 +87,7 @@ Partial Class Form1
         '
         'BtnSimpan
         '
-        Me.BtnSimpan.Location = New System.Drawing.Point(124, 373)
+        Me.BtnSimpan.Location = New System.Drawing.Point(106, 365)
         Me.BtnSimpan.Name = "BtnSimpan"
         Me.BtnSimpan.Size = New System.Drawing.Size(75, 23)
         Me.BtnSimpan.TabIndex = 49
@@ -96,7 +96,7 @@ Partial Class Form1
         '
         'BtnBrowse
         '
-        Me.BtnBrowse.Location = New System.Drawing.Point(346, 346)
+        Me.BtnBrowse.Location = New System.Drawing.Point(328, 338)
         Me.BtnBrowse.Name = "BtnBrowse"
         Me.BtnBrowse.Size = New System.Drawing.Size(75, 23)
         Me.BtnBrowse.TabIndex = 48
@@ -105,7 +105,7 @@ Partial Class Form1
         '
         'TxtFoto
         '
-        Me.TxtFoto.Location = New System.Drawing.Point(124, 347)
+        Me.TxtFoto.Location = New System.Drawing.Point(106, 339)
         Me.TxtFoto.Name = "TxtFoto"
         Me.TxtFoto.Size = New System.Drawing.Size(216, 20)
         Me.TxtFoto.TabIndex = 47
@@ -113,7 +113,7 @@ Partial Class Form1
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(52, 350)
+        Me.Label10.Location = New System.Drawing.Point(34, 342)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(28, 13)
         Me.Label10.TabIndex = 46
@@ -123,7 +123,7 @@ Partial Class Form1
         '
         Me.CmbProvinsi.FormattingEnabled = True
         Me.CmbProvinsi.Items.AddRange(New Object() {"Jawa Tengah", "Jawa Timur"})
-        Me.CmbProvinsi.Location = New System.Drawing.Point(124, 268)
+        Me.CmbProvinsi.Location = New System.Drawing.Point(106, 260)
         Me.CmbProvinsi.Name = "CmbProvinsi"
         Me.CmbProvinsi.Size = New System.Drawing.Size(216, 21)
         Me.CmbProvinsi.TabIndex = 45
@@ -132,14 +132,14 @@ Partial Class Form1
         '
         Me.CmbKota.FormattingEnabled = True
         Me.CmbKota.Items.AddRange(New Object() {"Kota Semarang", "Kab Semarang", "Kendal", "Demak", "Pati", "Magelang", "Wonosobo", "Purwokerto", "Blora", "Lamongan", "Rambang"})
-        Me.CmbKota.Location = New System.Drawing.Point(124, 242)
+        Me.CmbKota.Location = New System.Drawing.Point(106, 234)
         Me.CmbKota.Name = "CmbKota"
         Me.CmbKota.Size = New System.Drawing.Size(216, 21)
         Me.CmbKota.TabIndex = 44
         '
         'TxtEmail
         '
-        Me.TxtEmail.Location = New System.Drawing.Point(124, 321)
+        Me.TxtEmail.Location = New System.Drawing.Point(106, 313)
         Me.TxtEmail.Name = "TxtEmail"
         Me.TxtEmail.Size = New System.Drawing.Size(216, 20)
         Me.TxtEmail.TabIndex = 43
@@ -147,7 +147,7 @@ Partial Class Form1
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(52, 324)
+        Me.Label9.Location = New System.Drawing.Point(34, 316)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(32, 13)
         Me.Label9.TabIndex = 42
@@ -155,7 +155,7 @@ Partial Class Form1
         '
         'TxtNoHP
         '
-        Me.TxtNoHP.Location = New System.Drawing.Point(124, 295)
+        Me.TxtNoHP.Location = New System.Drawing.Point(106, 287)
         Me.TxtNoHP.Name = "TxtNoHP"
         Me.TxtNoHP.Size = New System.Drawing.Size(216, 20)
         Me.TxtNoHP.TabIndex = 41
@@ -163,7 +163,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(52, 298)
+        Me.Label7.Location = New System.Drawing.Point(34, 290)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(39, 13)
         Me.Label7.TabIndex = 40
@@ -172,7 +172,7 @@ Partial Class Form1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(52, 272)
+        Me.Label8.Location = New System.Drawing.Point(34, 264)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(44, 13)
         Me.Label8.TabIndex = 39
@@ -180,7 +180,7 @@ Partial Class Form1
         '
         'Tgl
         '
-        Me.Tgl.Location = New System.Drawing.Point(124, 137)
+        Me.Tgl.Location = New System.Drawing.Point(106, 129)
         Me.Tgl.Name = "Tgl"
         Me.Tgl.Size = New System.Drawing.Size(216, 20)
         Me.Tgl.TabIndex = 38
@@ -188,7 +188,7 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(52, 246)
+        Me.Label5.Location = New System.Drawing.Point(34, 238)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(29, 13)
         Me.Label5.TabIndex = 37
@@ -196,7 +196,7 @@ Partial Class Form1
         '
         'TxtAlamat
         '
-        Me.TxtAlamat.Location = New System.Drawing.Point(124, 162)
+        Me.TxtAlamat.Location = New System.Drawing.Point(106, 154)
         Me.TxtAlamat.Multiline = True
         Me.TxtAlamat.Name = "TxtAlamat"
         Me.TxtAlamat.Size = New System.Drawing.Size(216, 72)
@@ -205,7 +205,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(52, 165)
+        Me.Label6.Location = New System.Drawing.Point(34, 157)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(39, 13)
         Me.Label6.TabIndex = 35
@@ -214,7 +214,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(52, 139)
+        Me.Label3.Location = New System.Drawing.Point(34, 131)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(72, 13)
         Me.Label3.TabIndex = 34
@@ -222,7 +222,7 @@ Partial Class Form1
         '
         'TxtTLahir
         '
-        Me.TxtTLahir.Location = New System.Drawing.Point(124, 110)
+        Me.TxtTLahir.Location = New System.Drawing.Point(106, 102)
         Me.TxtTLahir.Name = "TxtTLahir"
         Me.TxtTLahir.Size = New System.Drawing.Size(216, 20)
         Me.TxtTLahir.TabIndex = 33
@@ -230,7 +230,7 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(52, 113)
+        Me.Label4.Location = New System.Drawing.Point(34, 105)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(69, 13)
         Me.Label4.TabIndex = 32
@@ -238,7 +238,7 @@ Partial Class Form1
         '
         'TxtNama
         '
-        Me.TxtNama.Location = New System.Drawing.Point(124, 84)
+        Me.TxtNama.Location = New System.Drawing.Point(106, 76)
         Me.TxtNama.Name = "TxtNama"
         Me.TxtNama.Size = New System.Drawing.Size(216, 20)
         Me.TxtNama.TabIndex = 31
@@ -246,7 +246,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(52, 87)
+        Me.Label2.Location = New System.Drawing.Point(34, 79)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(35, 13)
         Me.Label2.TabIndex = 30
@@ -254,7 +254,7 @@ Partial Class Form1
         '
         'TxtNIM
         '
-        Me.TxtNIM.Location = New System.Drawing.Point(124, 58)
+        Me.TxtNIM.Location = New System.Drawing.Point(106, 50)
         Me.TxtNIM.Name = "TxtNIM"
         Me.TxtNIM.Size = New System.Drawing.Size(216, 20)
         Me.TxtNIM.TabIndex = 29
@@ -262,7 +262,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(52, 61)
+        Me.Label1.Location = New System.Drawing.Point(34, 53)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(27, 13)
         Me.Label1.TabIndex = 28
@@ -270,7 +270,7 @@ Partial Class Form1
         '
         'BtnUpdate
         '
-        Me.BtnUpdate.Location = New System.Drawing.Point(206, 373)
+        Me.BtnUpdate.Location = New System.Drawing.Point(188, 365)
         Me.BtnUpdate.Name = "BtnUpdate"
         Me.BtnUpdate.Size = New System.Drawing.Size(75, 23)
         Me.BtnUpdate.TabIndex = 53
@@ -279,7 +279,7 @@ Partial Class Form1
         '
         'BtnDelete
         '
-        Me.BtnDelete.Location = New System.Drawing.Point(287, 373)
+        Me.BtnDelete.Location = New System.Drawing.Point(269, 365)
         Me.BtnDelete.Name = "BtnDelete"
         Me.BtnDelete.Size = New System.Drawing.Size(75, 23)
         Me.BtnDelete.TabIndex = 54
@@ -289,7 +289,7 @@ Partial Class Form1
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(368, 258)
+        Me.Label12.Location = New System.Drawing.Point(350, 250)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(67, 13)
         Me.Label12.TabIndex = 55
@@ -299,21 +299,21 @@ Partial Class Form1
         '
         Me.CmbCari.FormattingEnabled = True
         Me.CmbCari.Items.AddRange(New Object() {"NIM", "Nama"})
-        Me.CmbCari.Location = New System.Drawing.Point(442, 258)
+        Me.CmbCari.Location = New System.Drawing.Point(424, 250)
         Me.CmbCari.Name = "CmbCari"
         Me.CmbCari.Size = New System.Drawing.Size(121, 21)
         Me.CmbCari.TabIndex = 56
         '
         'MskCari
         '
-        Me.MskCari.Location = New System.Drawing.Point(371, 286)
+        Me.MskCari.Location = New System.Drawing.Point(353, 278)
         Me.MskCari.Name = "MskCari"
         Me.MskCari.Size = New System.Drawing.Size(192, 20)
         Me.MskCari.TabIndex = 57
         '
         'BtnCari
         '
-        Me.BtnCari.Location = New System.Drawing.Point(488, 312)
+        Me.BtnCari.Location = New System.Drawing.Point(470, 304)
         Me.BtnCari.Name = "BtnCari"
         Me.BtnCari.Size = New System.Drawing.Size(75, 23)
         Me.BtnCari.TabIndex = 58
@@ -322,7 +322,7 @@ Partial Class Form1
         '
         'GroupBox1
         '
-        Me.GroupBox1.Location = New System.Drawing.Point(359, 240)
+        Me.GroupBox1.Location = New System.Drawing.Point(341, 232)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(222, 101)
         Me.GroupBox1.TabIndex = 59
@@ -333,7 +333,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(602, 589)
+        Me.ClientSize = New System.Drawing.Size(602, 571)
         Me.Controls.Add(Me.BtnCari)
         Me.Controls.Add(Me.MskCari)
         Me.Controls.Add(Me.CmbCari)
