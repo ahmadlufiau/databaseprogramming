@@ -47,15 +47,23 @@ Partial Class Form2
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TxtNIP = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnDelete = New System.Windows.Forms.Button()
+        Me.BtnUpdate = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BtnCari = New System.Windows.Forms.Button()
+        Me.MskCari = New System.Windows.Forms.MaskedTextBox()
+        Me.CmbCari = New System.Windows.Forms.ComboBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(84, 19)
+        Me.Label11.Location = New System.Drawing.Point(112, 21)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(334, 25)
         Me.Label11.TabIndex = 77
@@ -64,14 +72,14 @@ Partial Class Form2
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(35, 350)
+        Me.DataGridView1.Location = New System.Drawing.Point(35, 369)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(456, 164)
+        Me.DataGridView1.Size = New System.Drawing.Size(526, 164)
         Me.DataGridView1.TabIndex = 76
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(339, 61)
+        Me.PictureBox1.Location = New System.Drawing.Point(377, 61)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(152, 176)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -80,7 +88,7 @@ Partial Class Form2
         '
         'BtnSimpan
         '
-        Me.BtnSimpan.Location = New System.Drawing.Point(104, 321)
+        Me.BtnSimpan.Location = New System.Drawing.Point(93, 340)
         Me.BtnSimpan.Name = "BtnSimpan"
         Me.BtnSimpan.Size = New System.Drawing.Size(75, 23)
         Me.BtnSimpan.TabIndex = 74
@@ -89,7 +97,7 @@ Partial Class Form2
         '
         'BtnBrowse
         '
-        Me.BtnBrowse.Location = New System.Drawing.Point(326, 294)
+        Me.BtnBrowse.Location = New System.Drawing.Point(245, 295)
         Me.BtnBrowse.Name = "BtnBrowse"
         Me.BtnBrowse.Size = New System.Drawing.Size(75, 23)
         Me.BtnBrowse.TabIndex = 73
@@ -100,7 +108,7 @@ Partial Class Form2
         '
         Me.TxtFoto.Location = New System.Drawing.Point(104, 295)
         Me.TxtFoto.Name = "TxtFoto"
-        Me.TxtFoto.Size = New System.Drawing.Size(216, 20)
+        Me.TxtFoto.Size = New System.Drawing.Size(133, 20)
         Me.TxtFoto.TabIndex = 72
         '
         'Label10
@@ -260,11 +268,79 @@ Partial Class Form2
         Me.Label1.TabIndex = 53
         Me.Label1.Text = "NIP"
         '
+        'BtnDelete
+        '
+        Me.BtnDelete.Location = New System.Drawing.Point(255, 340)
+        Me.BtnDelete.Name = "BtnDelete"
+        Me.BtnDelete.Size = New System.Drawing.Size(75, 23)
+        Me.BtnDelete.TabIndex = 79
+        Me.BtnDelete.Text = "Delete"
+        Me.BtnDelete.UseVisualStyleBackColor = True
+        '
+        'BtnUpdate
+        '
+        Me.BtnUpdate.Location = New System.Drawing.Point(174, 340)
+        Me.BtnUpdate.Name = "BtnUpdate"
+        Me.BtnUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.BtnUpdate.TabIndex = 78
+        Me.BtnUpdate.Text = "Update"
+        Me.BtnUpdate.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.BtnCari)
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.MskCari)
+        Me.GroupBox1.Controls.Add(Me.CmbCari)
+        Me.GroupBox1.Location = New System.Drawing.Point(339, 246)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(222, 101)
+        Me.GroupBox1.TabIndex = 80
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Cari Data"
+        '
+        'BtnCari
+        '
+        Me.BtnCari.Location = New System.Drawing.Point(132, 70)
+        Me.BtnCari.Name = "BtnCari"
+        Me.BtnCari.Size = New System.Drawing.Size(75, 23)
+        Me.BtnCari.TabIndex = 84
+        Me.BtnCari.Text = "Cari"
+        Me.BtnCari.UseVisualStyleBackColor = True
+        '
+        'MskCari
+        '
+        Me.MskCari.Location = New System.Drawing.Point(15, 44)
+        Me.MskCari.Name = "MskCari"
+        Me.MskCari.Size = New System.Drawing.Size(192, 20)
+        Me.MskCari.TabIndex = 83
+        '
+        'CmbCari
+        '
+        Me.CmbCari.FormattingEnabled = True
+        Me.CmbCari.Items.AddRange(New Object() {"NIP", "Nama"})
+        Me.CmbCari.Location = New System.Drawing.Point(86, 16)
+        Me.CmbCari.Name = "CmbCari"
+        Me.CmbCari.Size = New System.Drawing.Size(121, 21)
+        Me.CmbCari.TabIndex = 82
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(12, 16)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(67, 13)
+        Me.Label12.TabIndex = 81
+        Me.Label12.Text = "Berdasarkan"
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(527, 522)
+        Me.ClientSize = New System.Drawing.Size(594, 560)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.BtnDelete)
+        Me.Controls.Add(Me.BtnUpdate)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.PictureBox1)
@@ -294,6 +370,8 @@ Partial Class Form2
         Me.Text = "Form2"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -324,4 +402,11 @@ Partial Class Form2
     Friend WithEvents Label2 As Label
     Friend WithEvents TxtNIP As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents BtnDelete As Button
+    Friend WithEvents BtnUpdate As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents BtnCari As Button
+    Friend WithEvents Label12 As Label
+    Friend WithEvents MskCari As MaskedTextBox
+    Friend WithEvents CmbCari As ComboBox
 End Class
