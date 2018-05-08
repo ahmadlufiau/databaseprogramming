@@ -78,7 +78,7 @@ Public Class Matakuliah
         TxtNMK.Text = CType(NMK, String)
         TxtSKS.Text = CType(SKS, String)
         TxtJT.Text = CType(JT, String)
-        TxtJT.Text = CType(JP, String)
+        TxtJP.Text = CType(JP, String)
     End Sub
 
     Sub ButtonEnable()
@@ -121,6 +121,10 @@ Public Class Matakuliah
         cmdUpdate.Dispose()
         TampilData()
         Bersih()
+        BtnSimpan.Enabled = True
+        BtnUpdate.Enabled = True
+        BtnDelete.Enabled = True
+        TxtKMK.Enabled = True
     End Sub
 
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
@@ -137,6 +141,10 @@ Public Class Matakuliah
         cmdDelete.Dispose()
         TampilData()
         Bersih()
+        BtnSimpan.Enabled = True
+        BtnUpdate.Enabled = True
+        BtnDelete.Enabled = True
+        TxtKMK.Enabled = True
     End Sub
 
     Private Sub BtnCari_Click(sender As Object, e As EventArgs) Handles BtnCari.Click
