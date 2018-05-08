@@ -11,6 +11,7 @@ Praktikum pemrograman basis data semester 4 politeknik negeri semarang.
 * Praktikum 2 Insert Data
 * Praktikum 3 Menyimpan Data Menggunakan Parameter
 * Praktikum 4 Update, Delete, dan Search Data
+* Praktikum 5 Manipulasi Data Pada Data Induk Beasiswa Dan Master Mata Kuliah
 
 ## Authors
 
