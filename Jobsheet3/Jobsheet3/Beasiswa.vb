@@ -152,7 +152,7 @@ Public Class Beasiswa
     Private Sub BtnCari_Click(sender As Object, e As EventArgs) Handles BtnCari.Click
         Dim query1 As String
         Dim query2 As String
-        query1 = "SELECT * FROM Master_Beasiswa WHERE Kode_BS= '" & MskCari.Text & "'"
+        query1 = "SELECT * FROM Master_Beasiswa WHERE Kode_BS LIKE '" & MskCari.Text & "%'"
         query2 = "SELECT * FROM Master_Beasiswa WHERE Nama_BS LIKE '" & MskCari.Text & "%'"
 
         If CmbCari.Text = "Kode Beasiswa" Then

@@ -150,8 +150,8 @@ Public Class Matakuliah
     Private Sub BtnCari_Click(sender As Object, e As EventArgs) Handles BtnCari.Click
         Dim query1 As String
         Dim query2 As String
-        query1 = "SELECT * FROM Master_Beasiswa WHERE Kode_MK= '" & MskCari.Text & "'"
-        query2 = "SELECT * FROM Master_Beasiswa WHERE Nama_MK LIKE '" & MskCari.Text & "%'"
+        query1 = "SELECT * FROM Master_MK WHERE Kode_MK LIKE '" & MskCari.Text & "%'"
+        query2 = "SELECT * FROM Master_MK WHERE Nama_MK LIKE '" & MskCari.Text & "%'"
 
         If CmbCari.Text = "Kode Mata Kuliah" Then
             ADP = New OleDbDataAdapter(query1, cnnOLEDB)
@@ -169,7 +169,7 @@ Public Class Matakuliah
             TxtNMK.Text = CType(NMK, String)
             TxtSKS.Text = CType(SKS, String)
             TxtJT.Text = CType(JT, String)
-            TxtJT.Text = CType(JP, String)
+            TxtJP.Text = CType(JP, String)
 
         Else
             ADP = New OleDbDataAdapter(query2, cnnOLEDB)
