@@ -200,4 +200,7 @@ Public Class Matakuliah
         GetData(e)
     End Sub
 
+    Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
+        Close()
+    End Sub
 End Class

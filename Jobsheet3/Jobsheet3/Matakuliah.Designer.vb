@@ -43,6 +43,7 @@ Partial Class Matakuliah
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtJP = New System.Windows.Forms.TextBox()
+        Me.BtnExit = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -50,19 +51,21 @@ Partial Class Matakuliah
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(80, 20)
+        Me.Label5.Font = New System.Drawing.Font("NewsGoth Cn BT", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label5.Location = New System.Drawing.Point(74, 14)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(400, 25)
+        Me.Label5.Size = New System.Drawing.Size(418, 39)
         Me.Label5.TabIndex = 68
         Me.Label5.Text = "FORM PENGISIAN DATA MATA KULIAH"
         '
         'DataGridView1
         '
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(12, 265)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(547, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(556, 247)
         Me.DataGridView1.TabIndex = 86
         '
         'BtnCari
@@ -93,6 +96,7 @@ Partial Class Matakuliah
         'Label12
         '
         Me.Label12.AutoSize = True
+        Me.Label12.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label12.Location = New System.Drawing.Point(328, 89)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(67, 13)
@@ -138,6 +142,7 @@ Partial Class Matakuliah
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label4.Location = New System.Drawing.Point(44, 172)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 13)
@@ -147,6 +152,7 @@ Partial Class Matakuliah
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label3.Location = New System.Drawing.Point(44, 146)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(28, 13)
@@ -156,6 +162,7 @@ Partial Class Matakuliah
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label2.Location = New System.Drawing.Point(44, 117)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(94, 13)
@@ -165,6 +172,7 @@ Partial Class Matakuliah
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label6.Location = New System.Drawing.Point(44, 87)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(91, 13)
@@ -216,6 +224,7 @@ Partial Class Matakuliah
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label1.Location = New System.Drawing.Point(11, 130)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 13)
@@ -229,11 +238,23 @@ Partial Class Matakuliah
         Me.TxtJP.Size = New System.Drawing.Size(141, 20)
         Me.TxtJP.TabIndex = 87
         '
+        'BtnExit
+        '
+        Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExit.Location = New System.Drawing.Point(525, -1)
+        Me.BtnExit.Name = "BtnExit"
+        Me.BtnExit.Size = New System.Drawing.Size(56, 46)
+        Me.BtnExit.TabIndex = 87
+        Me.BtnExit.Text = "X"
+        Me.BtnExit.UseVisualStyleBackColor = True
+        '
         'Matakuliah
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(580, 426)
+        Me.BackColor = System.Drawing.Color.OrangeRed
+        Me.ClientSize = New System.Drawing.Size(580, 524)
+        Me.Controls.Add(Me.BtnExit)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.BtnCari)
         Me.Controls.Add(Me.MskCari)
@@ -250,7 +271,9 @@ Partial Class Matakuliah
         Me.Controls.Add(Me.TxtKMK)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label5)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Matakuliah"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Matakuliah"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -281,4 +304,5 @@ Partial Class Matakuliah
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
     Friend WithEvents TxtJP As TextBox
+    Friend WithEvents BtnExit As Button
 End Class

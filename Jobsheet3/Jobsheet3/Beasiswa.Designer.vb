@@ -41,6 +41,7 @@ Partial Class Beasiswa
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.BtnExit = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -189,27 +190,41 @@ Partial Class Beasiswa
         '
         'DataGridView1
         '
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(12, 247)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(508, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(508, 276)
         Me.DataGridView1.TabIndex = 66
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(79, 19)
+        Me.Label5.Font = New System.Drawing.Font("NewsGoth Cn BT", 24.0!)
+        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.Location = New System.Drawing.Point(79, 15)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(369, 25)
+        Me.Label5.Size = New System.Drawing.Size(383, 39)
         Me.Label5.TabIndex = 67
         Me.Label5.Text = "FORM PENGISIAN DATA BEASISWA"
+        '
+        'BtnExit
+        '
+        Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExit.Location = New System.Drawing.Point(482, -2)
+        Me.BtnExit.Name = "BtnExit"
+        Me.BtnExit.Size = New System.Drawing.Size(56, 46)
+        Me.BtnExit.TabIndex = 88
+        Me.BtnExit.Text = "X"
+        Me.BtnExit.UseVisualStyleBackColor = True
         '
         'Beasiswa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(537, 403)
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.ClientSize = New System.Drawing.Size(537, 535)
+        Me.Controls.Add(Me.BtnExit)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.BtnCari)
@@ -229,7 +244,9 @@ Partial Class Beasiswa
         Me.Controls.Add(Me.TxtNB)
         Me.Controls.Add(Me.TxtKB)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Beasiswa"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Beasiswa"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -256,4 +273,5 @@ Partial Class Beasiswa
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label5 As Label
+    Friend WithEvents BtnExit As Button
 End Class
