@@ -201,6 +201,7 @@ Public Class Matakuliah
     End Sub
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
+        MenuUtama.Show()
         Close()
     End Sub
 End Class

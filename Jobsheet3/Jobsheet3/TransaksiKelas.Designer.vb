@@ -31,6 +31,7 @@ Partial Class TransaksiKelas
         Me.TxtTahunMasuk = New System.Windows.Forms.TextBox()
         Me.TxtKelas = New System.Windows.Forms.TextBox()
         Me.TabEdit = New System.Windows.Forms.TabPage()
+        Me.MskEdit = New System.Windows.Forms.MaskedTextBox()
         Me.BtnUbah = New System.Windows.Forms.Button()
         Me.BtnOKEdit2 = New System.Windows.Forms.Button()
         Me.BtnOKEdit1 = New System.Windows.Forms.Button()
@@ -47,14 +48,24 @@ Partial Class TransaksiKelas
         Me.Label6 = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.MskEdit = New System.Windows.Forms.MaskedTextBox()
         Me.BtnExit = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.TabAlumni = New System.Windows.Forms.TabPage()
+        Me.BtnLihatAlumni = New System.Windows.Forms.Button()
+        Me.TxtNIMAlumni = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.BtnSimpanAlumni = New System.Windows.Forms.Button()
+        Me.BtnLihat = New System.Windows.Forms.Button()
+        Me.TxtKerja = New System.Windows.Forms.TextBox()
+        Me.TxtAngkatan = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabSimpan.SuspendLayout()
         Me.TabEdit.SuspendLayout()
         Me.TabHapus.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabAlumni.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -62,10 +73,11 @@ Partial Class TransaksiKelas
         Me.TabControl1.Controls.Add(Me.TabSimpan)
         Me.TabControl1.Controls.Add(Me.TabEdit)
         Me.TabControl1.Controls.Add(Me.TabHapus)
+        Me.TabControl1.Controls.Add(Me.TabAlumni)
         Me.TabControl1.Location = New System.Drawing.Point(13, 58)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(585, 206)
+        Me.TabControl1.Size = New System.Drawing.Size(496, 206)
         Me.TabControl1.TabIndex = 0
         '
         'TabSimpan
@@ -79,25 +91,27 @@ Partial Class TransaksiKelas
         Me.TabSimpan.Location = New System.Drawing.Point(4, 22)
         Me.TabSimpan.Name = "TabSimpan"
         Me.TabSimpan.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabSimpan.Size = New System.Drawing.Size(577, 180)
+        Me.TabSimpan.Size = New System.Drawing.Size(488, 180)
         Me.TabSimpan.TabIndex = 0
         Me.TabSimpan.Text = "Simpan"
         Me.TabSimpan.UseVisualStyleBackColor = True
         '
         'BtnOK
         '
-        Me.BtnOK.Location = New System.Drawing.Point(241, 85)
+        Me.BtnOK.Font = New System.Drawing.Font("Bebas Kai", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOK.Location = New System.Drawing.Point(330, 86)
         Me.BtnOK.Name = "BtnOK"
-        Me.BtnOK.Size = New System.Drawing.Size(75, 23)
+        Me.BtnOK.Size = New System.Drawing.Size(53, 33)
         Me.BtnOK.TabIndex = 5
         Me.BtnOK.Text = "OK"
         Me.BtnOK.UseVisualStyleBackColor = True
         '
         'BtnSimpan
         '
-        Me.BtnSimpan.Location = New System.Drawing.Point(135, 114)
+        Me.BtnSimpan.Font = New System.Drawing.Font("Bebas Kai", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSimpan.Location = New System.Drawing.Point(177, 123)
         Me.BtnSimpan.Name = "BtnSimpan"
-        Me.BtnSimpan.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSimpan.Size = New System.Drawing.Size(100, 33)
         Me.BtnSimpan.TabIndex = 4
         Me.BtnSimpan.Text = "Simpan"
         Me.BtnSimpan.UseVisualStyleBackColor = True
@@ -105,33 +119,37 @@ Partial Class TransaksiKelas
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(53, 90)
+        Me.Label2.Font = New System.Drawing.Font("Myriad Pro", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(48, 90)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(73, 13)
+        Me.Label2.Size = New System.Drawing.Size(114, 23)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Tahun Masuk"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(53, 53)
+        Me.Label1.Font = New System.Drawing.Font("Myriad Pro", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(48, 42)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(33, 13)
+        Me.Label1.Size = New System.Drawing.Size(51, 23)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Kelas"
         '
         'TxtTahunMasuk
         '
-        Me.TxtTahunMasuk.Location = New System.Drawing.Point(135, 87)
+        Me.TxtTahunMasuk.Font = New System.Drawing.Font("Myriad Pro", 14.25!)
+        Me.TxtTahunMasuk.Location = New System.Drawing.Point(177, 87)
         Me.TxtTahunMasuk.Name = "TxtTahunMasuk"
-        Me.TxtTahunMasuk.Size = New System.Drawing.Size(100, 20)
+        Me.TxtTahunMasuk.Size = New System.Drawing.Size(147, 30)
         Me.TxtTahunMasuk.TabIndex = 1
         '
         'TxtKelas
         '
-        Me.TxtKelas.Location = New System.Drawing.Point(135, 50)
+        Me.TxtKelas.Font = New System.Drawing.Font("Myriad Pro", 14.25!)
+        Me.TxtKelas.Location = New System.Drawing.Point(177, 39)
         Me.TxtKelas.Name = "TxtKelas"
-        Me.TxtKelas.Size = New System.Drawing.Size(100, 20)
+        Me.TxtKelas.Size = New System.Drawing.Size(100, 30)
         Me.TxtKelas.TabIndex = 0
         '
         'TabEdit
@@ -150,10 +168,17 @@ Partial Class TransaksiKelas
         Me.TabEdit.Location = New System.Drawing.Point(4, 22)
         Me.TabEdit.Name = "TabEdit"
         Me.TabEdit.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabEdit.Size = New System.Drawing.Size(577, 180)
+        Me.TabEdit.Size = New System.Drawing.Size(488, 180)
         Me.TabEdit.TabIndex = 1
         Me.TabEdit.Text = "Edit"
         Me.TabEdit.UseVisualStyleBackColor = True
+        '
+        'MskEdit
+        '
+        Me.MskEdit.Location = New System.Drawing.Point(231, 103)
+        Me.MskEdit.Name = "MskEdit"
+        Me.MskEdit.Size = New System.Drawing.Size(138, 20)
+        Me.MskEdit.TabIndex = 11
         '
         'BtnUbah
         '
@@ -252,33 +277,37 @@ Partial Class TransaksiKelas
         Me.TabHapus.Controls.Add(Me.Label6)
         Me.TabHapus.Location = New System.Drawing.Point(4, 22)
         Me.TabHapus.Name = "TabHapus"
-        Me.TabHapus.Size = New System.Drawing.Size(577, 180)
+        Me.TabHapus.Size = New System.Drawing.Size(488, 180)
         Me.TabHapus.TabIndex = 2
         Me.TabHapus.Text = "Hapus"
         Me.TabHapus.UseVisualStyleBackColor = True
         '
         'BtnHapus
         '
-        Me.BtnHapus.Location = New System.Drawing.Point(236, 140)
+        Me.BtnHapus.Font = New System.Drawing.Font("Bebas Kai", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnHapus.Location = New System.Drawing.Point(177, 118)
         Me.BtnHapus.Name = "BtnHapus"
-        Me.BtnHapus.Size = New System.Drawing.Size(75, 23)
+        Me.BtnHapus.Size = New System.Drawing.Size(129, 45)
         Me.BtnHapus.TabIndex = 13
         Me.BtnHapus.Text = "Hapus"
         Me.BtnHapus.UseVisualStyleBackColor = True
         '
         'TxtNamaKelas2
         '
-        Me.TxtNamaKelas2.Location = New System.Drawing.Point(262, 87)
+        Me.TxtNamaKelas2.Font = New System.Drawing.Font("Myriad Pro", 20.25!)
+        Me.TxtNamaKelas2.Location = New System.Drawing.Point(142, 61)
+        Me.TxtNamaKelas2.Multiline = True
         Me.TxtNamaKelas2.Name = "TxtNamaKelas2"
-        Me.TxtNamaKelas2.Size = New System.Drawing.Size(100, 20)
+        Me.TxtNamaKelas2.Size = New System.Drawing.Size(203, 51)
         Me.TxtNamaKelas2.TabIndex = 12
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(169, 90)
+        Me.Label6.Font = New System.Drawing.Font("Myriad Pro", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(171, 26)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(64, 13)
+        Me.Label6.Size = New System.Drawing.Size(147, 32)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Nama Kelas"
         '
@@ -297,20 +326,13 @@ Partial Class TransaksiKelas
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(20, 306)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(578, 206)
+        Me.DataGridView1.Size = New System.Drawing.Size(489, 206)
         Me.DataGridView1.TabIndex = 2
-        '
-        'MskEdit
-        '
-        Me.MskEdit.Location = New System.Drawing.Point(231, 103)
-        Me.MskEdit.Name = "MskEdit"
-        Me.MskEdit.Size = New System.Drawing.Size(138, 20)
-        Me.MskEdit.TabIndex = 11
         '
         'BtnExit
         '
         Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExit.Location = New System.Drawing.Point(538, 6)
+        Me.BtnExit.Location = New System.Drawing.Point(449, 13)
         Me.BtnExit.Name = "BtnExit"
         Me.BtnExit.Size = New System.Drawing.Size(56, 46)
         Me.BtnExit.TabIndex = 88
@@ -320,19 +342,112 @@ Partial Class TransaksiKelas
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("NewsGoth Cn BT", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("NewsGoth Cn BT", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.Black
-        Me.Label7.Location = New System.Drawing.Point(81, 9)
+        Me.Label7.Location = New System.Drawing.Point(10, 13)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(403, 39)
+        Me.Label7.Size = New System.Drawing.Size(347, 32)
         Me.Label7.TabIndex = 89
         Me.Label7.Text = "FORM PENGISIAN TRANSAKSI KELAS"
+        '
+        'TabAlumni
+        '
+        Me.TabAlumni.Controls.Add(Me.BtnLihatAlumni)
+        Me.TabAlumni.Controls.Add(Me.Label8)
+        Me.TabAlumni.Controls.Add(Me.TxtNIMAlumni)
+        Me.TabAlumni.Controls.Add(Me.Label9)
+        Me.TabAlumni.Controls.Add(Me.Label10)
+        Me.TabAlumni.Controls.Add(Me.TxtAngkatan)
+        Me.TabAlumni.Controls.Add(Me.BtnSimpanAlumni)
+        Me.TabAlumni.Controls.Add(Me.TxtKerja)
+        Me.TabAlumni.Controls.Add(Me.BtnLihat)
+        Me.TabAlumni.Location = New System.Drawing.Point(4, 22)
+        Me.TabAlumni.Name = "TabAlumni"
+        Me.TabAlumni.Size = New System.Drawing.Size(488, 180)
+        Me.TabAlumni.TabIndex = 3
+        Me.TabAlumni.Text = "Alumni"
+        Me.TabAlumni.UseVisualStyleBackColor = True
+        '
+        'BtnLihatAlumni
+        '
+        Me.BtnLihatAlumni.Location = New System.Drawing.Point(199, 108)
+        Me.BtnLihatAlumni.Name = "BtnLihatAlumni"
+        Me.BtnLihatAlumni.Size = New System.Drawing.Size(116, 23)
+        Me.BtnLihatAlumni.TabIndex = 98
+        Me.BtnLihatAlumni.Text = "Lihat Data Alumni"
+        Me.BtnLihatAlumni.UseVisualStyleBackColor = True
+        '
+        'TxtNIMAlumni
+        '
+        Me.TxtNIMAlumni.Location = New System.Drawing.Point(41, 111)
+        Me.TxtNIMAlumni.Name = "TxtNIMAlumni"
+        Me.TxtNIMAlumni.Size = New System.Drawing.Size(149, 20)
+        Me.TxtNIMAlumni.TabIndex = 97
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(38, 91)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(80, 13)
+        Me.Label10.TabIndex = 96
+        Me.Label10.Text = "Masukkan NIM"
+        '
+        'BtnSimpanAlumni
+        '
+        Me.BtnSimpanAlumni.Location = New System.Drawing.Point(240, 50)
+        Me.BtnSimpanAlumni.Name = "BtnSimpanAlumni"
+        Me.BtnSimpanAlumni.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSimpanAlumni.TabIndex = 95
+        Me.BtnSimpanAlumni.Text = "Simpan"
+        Me.BtnSimpanAlumni.UseVisualStyleBackColor = True
+        '
+        'BtnLihat
+        '
+        Me.BtnLihat.Location = New System.Drawing.Point(240, 23)
+        Me.BtnLihat.Name = "BtnLihat"
+        Me.BtnLihat.Size = New System.Drawing.Size(75, 23)
+        Me.BtnLihat.TabIndex = 94
+        Me.BtnLihat.Text = "Lihat Data"
+        Me.BtnLihat.UseVisualStyleBackColor = True
+        '
+        'TxtKerja
+        '
+        Me.TxtKerja.Location = New System.Drawing.Point(102, 52)
+        Me.TxtKerja.Name = "TxtKerja"
+        Me.TxtKerja.Size = New System.Drawing.Size(126, 20)
+        Me.TxtKerja.TabIndex = 93
+        '
+        'TxtAngkatan
+        '
+        Me.TxtAngkatan.Location = New System.Drawing.Point(102, 25)
+        Me.TxtAngkatan.Name = "TxtAngkatan"
+        Me.TxtAngkatan.Size = New System.Drawing.Size(126, 20)
+        Me.TxtAngkatan.TabIndex = 92
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(38, 55)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(31, 13)
+        Me.Label9.TabIndex = 91
+        Me.Label9.Text = "Kerja"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(38, 28)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(53, 13)
+        Me.Label8.TabIndex = 90
+        Me.Label8.Text = "Angkatan"
         '
         'TransaksiKelas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(610, 533)
+        Me.ClientSize = New System.Drawing.Size(531, 533)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.BtnExit)
         Me.Controls.Add(Me.DataGridView1)
@@ -350,6 +465,8 @@ Partial Class TransaksiKelas
         Me.TabHapus.ResumeLayout(False)
         Me.TabHapus.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabAlumni.ResumeLayout(False)
+        Me.TabAlumni.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -383,4 +500,14 @@ Partial Class TransaksiKelas
     Friend WithEvents MskEdit As MaskedTextBox
     Friend WithEvents BtnExit As Button
     Friend WithEvents Label7 As Label
+    Friend WithEvents TabAlumni As TabPage
+    Friend WithEvents BtnLihatAlumni As Button
+    Friend WithEvents Label8 As Label
+    Friend WithEvents TxtNIMAlumni As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents TxtAngkatan As TextBox
+    Friend WithEvents BtnSimpanAlumni As Button
+    Friend WithEvents TxtKerja As TextBox
+    Friend WithEvents BtnLihat As Button
 End Class

@@ -19,7 +19,6 @@ Public Class TransaksiKelas
     Private Sub TransaksiKelas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cnnOLEDB.ConnectionString = strConnectionString
         cnnOLEDB.Open()
-        Close()
         Label3.Visible = False
         Label4.Visible = False
         Label5.Visible = False
@@ -83,12 +82,17 @@ Public Class TransaksiKelas
             If DataGridView1.Item(0, i).Value = True Then
                 Try
                     cmdUpdate.CommandText = "UPDATE Kelas SET Kelas=@Kelas, Status=@Status WHERE Kelas=@KelasSebelum AND NIM=@NIM"
-                    cmdUpdate.Parameters.AddWithValue("@Kelas", Me.TxtEdit1.Text)
+
+                    cmdUpdate.Parameters.AddWithValue("@Kelas", Me.TxtEdit2.Text)
+
                     Dim Status As Object = DataGridView1.Rows(i).Cells(4).Value
                     cmdUpdate.Parameters.AddWithValue("@Status", CType(Status, String))
-                    cmdUpdate.Parameters.AddWithValue("@KelasSebelum", Me.TxtEdit2.Text)
+
+                    cmdUpdate.Parameters.AddWithValue("@KelasSebelum", Me.TxtEdit1.Text)
+
                     Dim NIM As Object = DataGridView1.Rows(i).Cells(1).Value
                     cmdUpdate.Parameters.AddWithValue("@NIM", CType(NIM, String))
+
                     cmdUpdate.CommandType = CommandType.Text
                     cmdUpdate.Connection = cnnOLEDB
                     cmdUpdate.ExecuteNonQuery()
@@ -236,6 +240,87 @@ Public Class TransaksiKelas
     End Sub
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
-        Close()
+        MenuUtama.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub BtnLihat_Click(sender As Object, e As EventArgs) Handles BtnLihat.Click
+        Dim query As String
+        'query = "SELECT m.NIM, m.Nama_Mhs, a.Kerja, k.Kelas FROM (Master_Mahasiswa m LEFT JOIN Kelas k ON m.NIM = k.NIM) LEFT JOIN Alumni a ON m.NIM = a.NIM WHERE a.Kerja IS NULL AND k.Kelas IS NULL AND MID(m.NIM,6,2)='" & TxtAngkatan.Text.Substring(2, 2) & "' ORDER BY m.NIM"
+        query = "SELECT m.NIM, m.Nama_Mhs, a.Kerja FROM (Master_Mahasiswa m LEFT JOIN Kelas k ON m.NIM = k.NIM) LEFT JOIN Alumni a ON m.NIM = a.NIM WHERE a.Kerja IS NULL AND MID(m.NIM,6,2)='" & TxtAngkatan.Text.Substring(2, 2) & "' ORDER BY m.NIM"
+        ADP = New OleDbDataAdapter(query, cnnOLEDB)
+        DS = New DataSet
+        ADP.Fill(DS, "Tabel1")
+        DataGridView1.Columns.Clear()
+        Dim chk As New DataGridViewCheckBoxColumn() With {.Width = 25}
+        DataGridView1.Columns.Add(chk)
+        chk.HeaderText = ""
+        chk.Name = "chk"
+        DataGridView1.DataSource = DS.Tables("Tabel1")
+        Dim cmb As New DataGridViewComboBoxColumn()
+        cmb.HeaderText = "Status"
+        cmb.Name = "cmbStatus"
+        cmb.MaxDropDownItems = 3
+        cmb.Items.Add("Alumni")
+        DataGridView1.Columns.Add(cmb)
+        Dim x As Integer = DataGridView1.RowCount
+        Do
+            x = x - 1
+            DataGridView1.Rows(x).Cells(4).Value = "Alumni"
+        Loop Until x = 0
+    End Sub
+
+    Private Sub BtnSimpanAlumni_Click(sender As Object, e As EventArgs) Handles BtnSimpanAlumni.Click
+        For i = 0 To DataGridView1.RowCount - 2
+            Dim NIM As Object = DataGridView1.Rows(i).Cells(1).Value
+            Dim Status As Object = DataGridView1.Rows(i).Cells(4).Value
+            If DataGridView1.Item(0, i).Value = True Then
+                Try
+                    cmdInsert.CommandText = "INSERT INTO Alumni(NIM,Kerja,Status) VALUES(@NIM,@Kerja,@Status)"
+                    cmdInsert.Parameters.AddWithValue("@NIM", CType(NIM, String))
+                    cmdInsert.Parameters.AddWithValue("@Kerja", CType(Me.TxtKerja.Text, String))
+                    cmdInsert.Parameters.AddWithValue("@Status", CType(Status, String))
+                    cmdInsert.CommandType = CommandType.Text
+                    cmdInsert.Connection = cnnOLEDB
+                    cmdInsert.ExecuteNonQuery()
+                    cmdInsert.Dispose()
+                Catch ex As Exception
+                    MsgBox(ex.ToString)
+                End Try
+            End If
+        Next
+        MsgBox("All Records Inserted", MsgBoxStyle.OkOnly, "Alumni")
+        DS.Tables("Tabel1").Clear()
+        DataGridView1.DataSource = DS.Tables("Tabel1")
+        TxtAngkatan.Clear()
+        TxtKerja.Clear()
+    End Sub
+
+    Private Sub BtnLihatAlumni_Click(sender As Object, e As EventArgs) Handles BtnLihatAlumni.Click
+        Dim query As String
+        query = "SELECT m.NIM, m.Nama_Mhs, a.Kerja FROM Master_Mahasiswa m INNER JOIN Alumni a ON m.NIM = a.NIM WHERE m.NIM='" & TxtNIMAlumni.Text & "' ORDER BY m.NIM"
+        ADP = New OleDbDataAdapter(query, cnnOLEDB)
+        DS = New DataSet
+        ADP.Fill(DS, "Tabel1")
+        DataGridView1.Columns.Clear()
+        Dim chk As New DataGridViewCheckBoxColumn() With {.Width = 25}
+        DataGridView1.Columns.Add(chk)
+        chk.HeaderText = ""
+        chk.Name = "chk"
+        DataGridView1.DataSource = DS.Tables("Tabel1")
+        Dim cmb As New DataGridViewComboBoxColumn()
+        cmb.HeaderText = "Status"
+        cmb.Name = "cmbStatus"
+        cmb.MaxDropDownItems = 3
+        cmb.Items.Add("Alumni")
+        DataGridView1.Columns.Add(cmb)
+        Dim Status As String
+        Status = "SELECT Status FROM Alumni"
+        ADP2 = New OleDbDataAdapter(Status, cnnOLEDB)
+        DS2 = New DataSet
+        ADP2.Fill(DS2, "Tabel2")
+        For i = 0 To DataGridView1.RowCount - 2
+            DataGridView1.Rows(i).Cells(4).Value = DS2.Tables("Tabel2").Rows(i)("Status")
+        Next
     End Sub
 End Class

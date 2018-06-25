@@ -191,6 +191,7 @@ Public Class Beasiswa
     End Sub
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
+        MenuUtama.Show()
         Hide()
     End Sub
 End Class
