@@ -36,7 +36,7 @@ Partial Class MenuUtama
         Me.Button7.Font = New System.Drawing.Font("Bebas Kai", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button7.Location = New System.Drawing.Point(415, 66)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(191, 96)
+        Me.Button7.Size = New System.Drawing.Size(191, 258)
         Me.Button7.TabIndex = 77
         Me.Button7.Text = "TRANSAKSI KELAS"
         Me.Button7.UseVisualStyleBackColor = True
@@ -46,7 +46,7 @@ Partial Class MenuUtama
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("NewsGoth Cn BT", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(198, 9)
+        Me.Label5.Location = New System.Drawing.Point(18, 16)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(251, 45)
         Me.Label5.TabIndex = 76
@@ -106,7 +106,7 @@ Partial Class MenuUtama
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(645, 341)
+        Me.ClientSize = New System.Drawing.Size(631, 341)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button5)

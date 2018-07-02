@@ -54,6 +54,7 @@ Partial Class Form1
         Me.MskCari = New System.Windows.Forms.MaskedTextBox()
         Me.BtnCari = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.BtnExit = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -329,11 +330,22 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cari Data"
         '
+        'BtnExit
+        '
+        Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExit.Location = New System.Drawing.Point(545, 1)
+        Me.BtnExit.Name = "BtnExit"
+        Me.BtnExit.Size = New System.Drawing.Size(56, 46)
+        Me.BtnExit.TabIndex = 89
+        Me.BtnExit.Text = "X"
+        Me.BtnExit.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(602, 571)
+        Me.Controls.Add(Me.BtnExit)
         Me.Controls.Add(Me.BtnCari)
         Me.Controls.Add(Me.MskCari)
         Me.Controls.Add(Me.CmbCari)
@@ -366,7 +378,9 @@ Partial Class Form1
         Me.Controls.Add(Me.TxtNIM)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -407,4 +421,5 @@ Partial Class Form1
     Friend WithEvents MskCari As MaskedTextBox
     Friend WithEvents BtnCari As Button
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents BtnExit As Button
 End Class

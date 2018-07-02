@@ -51,9 +51,10 @@ Partial Class Form2
         Me.BtnUpdate = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BtnCari = New System.Windows.Forms.Button()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.MskCari = New System.Windows.Forms.MaskedTextBox()
         Me.CmbCari = New System.Windows.Forms.ComboBox()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.BtnExit = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -308,6 +309,15 @@ Partial Class Form2
         Me.BtnCari.Text = "Cari"
         Me.BtnCari.UseVisualStyleBackColor = True
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(12, 16)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(67, 13)
+        Me.Label12.TabIndex = 81
+        Me.Label12.Text = "Berdasarkan"
+        '
         'MskCari
         '
         Me.MskCari.Location = New System.Drawing.Point(15, 44)
@@ -324,20 +334,22 @@ Partial Class Form2
         Me.CmbCari.Size = New System.Drawing.Size(121, 21)
         Me.CmbCari.TabIndex = 82
         '
-        'Label12
+        'BtnExit
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(12, 16)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(67, 13)
-        Me.Label12.TabIndex = 81
-        Me.Label12.Text = "Berdasarkan"
+        Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExit.Location = New System.Drawing.Point(539, -1)
+        Me.BtnExit.Name = "BtnExit"
+        Me.BtnExit.Size = New System.Drawing.Size(56, 46)
+        Me.BtnExit.TabIndex = 88
+        Me.BtnExit.Text = "X"
+        Me.BtnExit.UseVisualStyleBackColor = True
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(594, 560)
+        Me.Controls.Add(Me.BtnExit)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.BtnDelete)
         Me.Controls.Add(Me.BtnUpdate)
@@ -366,7 +378,9 @@ Partial Class Form2
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TxtNIP)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form2"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form2"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -409,4 +423,5 @@ Partial Class Form2
     Friend WithEvents Label12 As Label
     Friend WithEvents MskCari As MaskedTextBox
     Friend WithEvents CmbCari As ComboBox
+    Friend WithEvents BtnExit As Button
 End Class

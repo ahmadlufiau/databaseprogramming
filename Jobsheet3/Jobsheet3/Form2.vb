@@ -326,4 +326,9 @@ Public Class Form2
             End If
         End If
     End Sub
+
+    Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
+        MenuUtama.Show()
+        Me.Close()
+    End Sub
 End Class
